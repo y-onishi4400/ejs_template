@@ -22,9 +22,9 @@ $ npm i
 起動
 
 ```
-& gulp ejs
+$ gulp ejs
 
 or
 
-& gulp
+$ gulp
 ```
