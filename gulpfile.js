@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 var fs = require('fs');
 var plumber = require('gulp-plumber');
 var ejs = require('gulp-ejs');
@@ -8,7 +10,7 @@ var notify  = require('gulp-notify');
 var watch = require('gulp-watch');
 var cache = require('gulp-cached');
 var sassGlob = require('gulp-sass-glob');
-
+var pleeease = require('gulp-pleeease');
 var destDir = 'html/css'; // 出力用ディレクトリ
 var hugoDir = 'html/theme/static/css'; // 出力用ディレクトリ
 var srcSass = 'resource/sass/**/*.scss';
@@ -28,6 +30,28 @@ gulp.task('ejs',function(){
     .pipe(gulp.dest('public/'));
 });
 
-gulp.task('default', gulp.series( gulp.parallel('ejs'), function(){
+/*
+ sass
+ */
+ gulp.task('sass', function() {
+  return gulp.src('./src/sass/**/**/*.scss')
+  .pipe(sassGlob())
+  .pipe(plumber({ // OK
+    errorHandler: function (error) {
+      console.log(error.message);
+      this.emit('end');
+    }}))
+  .pipe(sass())
+  .pipe(pleeease({
+    sass: true,
+    autoprefixer:true,
+    minifier: false,
+    mqpacker: false
+  }))
+  .pipe(gulp.dest( './public/css/'));
+});
+
+gulp.task('default', gulp.series( gulp.parallel('ejs', 'sass'), function(){
   gulp.watch('src/ejs/**/*.ejs', gulp.task('ejs'));
+  gulp.watch('src/sass/**/**/**/*.scss', gulp.task('sass'));
 }));

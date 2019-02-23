@@ -26,5 +26,9 @@ $ gulp ejs
 
 or
 
+$ gulp sass
+
+or
+
 $ gulp
 ```

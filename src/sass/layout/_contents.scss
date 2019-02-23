@@ -1,0 +1,7 @@
+.l-contents {
+
+  @include cf();
+
+  @include respond(sm){
+  }
+}

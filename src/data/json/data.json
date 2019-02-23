@@ -4,7 +4,8 @@
     "description": "ディスクリプション！",
     "url":"サイトURL",
     "ogp_img": "ogp画像",
-    "sitename": "配下ページタイトルの末尾に着けるサイト名（｜株式会社○○など）"
+    "sitename": "配下ページタイトルの末尾に着けるサイト名（｜株式会社○○など）",
+    "css": "css/style.css"
   },
   "top": {
     "sitename": ""
@@ -15,14 +16,17 @@
   },
   "news01": {
     "title": "お知らせ001",
-    "url":"https://exsample.com/about/"
+    "url":"https://exsample.com/about/",
+    "css": "../css/style.css"
   },
   "news02": {
     "title": "お知らせ002",
-    "url":"https://exsample.com/about/"
+    "url":"https://exsample.com/about/",
+    "css": "../css/style.css"
   },
   "news03": {
     "title": "お知らせ003",
-    "url":"https://exsample.com/about/"
+    "url":"https://exsample.com/about/",
+    "css": "../css/style.css"
   }
 }
